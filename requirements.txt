@@ -1,0 +1,15 @@
+descartes==1.1.0
+factor-analyzer==0.3.2
+ffmpeg==1.4
+matplotlib==3.2.1
+matplotlib-venn==0.11.6
+numpy==1.18.2
+pandas==1.2.3
+pingouin==0.3.12
+scikit-learn==0.22.2.post1
+scipy==1.4.1
+seaborn==0.10.0
+Shapely==1.7.0
+sklearn==0.0
+statsmodels==0.11.1
+opencv-python==4.2.0.34

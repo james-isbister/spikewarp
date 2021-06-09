@@ -1,0 +1,145 @@
+{
+	"original_data_root": "[PATH_TO_BE_SET_BY_USER]/IsbisterEtAl-SciRep2021-Data/",
+	"figures_root_directory": "[PATH_TO_BE_SET_BY_USER]/IsbisterEtAl-SciRep2021-Figures/",
+	"number_of_processors": 8,
+	"channel_unit_pair_format": false,
+	"max_stimulation_frequency": 10.0,
+	"original_spike_cut": [-50, 150],
+	"experiments_to_process": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+
+	"experiment_codes": ["S001E026G001",
+						"S001E068G001",
+						"S001E075F009",
+						"S001E062F011",
+						"S001E050G001",
+						"S001E047F007",
+						"S001E067G001",
+						"S001E045G001",
+						"S001E066F014",
+						"S001E031G001",
+
+						"S001E005F003",
+						"S001E009F002",
+						"S001E022F002",
+						"S001E030G001",
+						"S001E073F011",
+						"S001E076F008",
+						"S001E077F012",
+						"S001E024F001"],
+
+	"experiment_handles": ["8Shanks/S001E026G001",
+							"8Shanks/S001E068G001",
+							"8Shanks/S001E075F009",
+							"8Shanks/S001E062F011",
+							"8Shanks/S001E050G001",
+							"8Shanks/S001E047F007",
+							"8Shanks/S001E067G001",
+							"8Shanks/S001E045G001",
+							"8Shanks/S001E066F014",
+							"8Shanks/S001E031G001",
+
+							"1Shank/S001E005F003",
+							"1Shank/S001E009F002",
+							"1Shank/S001E022F002",
+							"1Shank/S001E030G001",
+							"1Shank/S001E073F011",
+							"1Shank/S001E076F008",
+							"1Shank/S001E077F012",
+							"1Shank/S001E024F001"],
+
+	"analyses": {
+
+		"SpikeCountPlots_50_post_cort": {
+			"analysis_type": "SpikeCountPlots",
+			"window_length": 50.0
+
+		},
+
+		"SingleUnitStationarity": {
+
+			"analysis_type": "SingleUnitStationarity",
+			"window_length": 50.0,
+			"do_single_unit_stationarity_tests": true,
+			"draw_individual_unit_plots": true
+		},
+
+		"CustomDBSCANExtra": {
+
+			"analysis_type": "PairwiseAnalysis",
+			"clustering_type": "CustomDBSCAN",
+			"window_length": 50.0,
+			"epsilon_start": 0.4,
+			"epsilon_end": 5.0,
+			"epsilon_step": 0.05,
+			"shuffle_options": [["normal", -1], ["shuffle", -1], ["sample", -1], ["sample_correlated_cluster_pca_ellipse_rotated_to_45", -1], ["45cluster_with_second_cluster", -1]],
+			"custom_checks": true,
+			"custom_stage_2_estimation": true,
+			"custom_stage_2_repeat_and_shared_pop": true
+			
+		},
+
+		"CustomDBSCANExtraTimeSpanCheck": {
+
+			"analysis_type": "PairwiseAnalysis",
+			"clustering_type": "CustomDBSCAN",
+			"window_length": 90.0,
+			"epsilon_start": 0.4,
+			"epsilon_end": 5.0,
+			"epsilon_step": 0.05,
+			"shuffle_options": [["normal", -1]],
+			"custom_checks": true,
+			"custom_stage_2_estimation": true,
+			"custom_stage_2_repeat_and_shared_pop": true
+			
+		},
+
+		"SciRepGMMInfCrit": {
+
+			"analysis_type": "PairwiseAnalysis",
+			"clustering_type": "GaussianMixtureInfCrit",
+			"window_length": 50.0,
+			"n_components_start": 10,
+			"n_components_end": 11,
+			"n_components_step": 1,
+			"shuffle_options": [["normal", -1], ["shuffle", -1], ["sample", -1]],
+			"custom_checks": false,
+			"custom_stage_2_estimation": false,
+			"custom_stage_2_repeat_and_shared_pop": false
+		},
+
+		"CustomGaussianMixtureInfCrit": {
+
+			"analysis_type": "PairwiseAnalysis",
+			"clustering_type": "CustomGaussianMixtureInfCrit",
+			"window_length": 50.0,
+			"n_components_start": 10,
+			"n_components_end": 11,
+			"n_components_step": 1,
+			"shuffle_options": [["normal", -1], ["shuffle", -1], ["sample", -1], ["sample_correlated_cluster_pca_ellipse_rotated_to_45", -1], ["45cluster_with_second_cluster", -1]],
+			"custom_checks": true,
+			"custom_stage_2_estimation": false,
+			"custom_stage_2_repeat_and_shared_pop": false
+		},
+
+		"Unclustered": {
+
+			"analysis_type": "PairwiseAnalysis",
+			"clustering_type": "Unclustered",
+			"window_length": 50.0,
+			"n_components_start": 0,
+			"n_components_end": 1,
+			"n_components_step": 1,
+			"shuffle_options": [["normal", -1], ["shuffle", -1], ["sample", -1], ["45cluster_with_second_cluster", -1]],
+			"custom_checks": false,
+			"custom_stage_2_estimation": false,
+			"custom_stage_2_repeat_and_shared_pop": false
+		}
+
+	},
+
+	
+	"analyses_to_process": ["CustomDBSCANExtra", "Unclustered", "SciRepGMMInfCrit", "CustomGaussianMixtureInfCrit", "SingleUnitStationarity", "SpikeCountPlots_50_post_cort", "CustomDBSCANExtraTimeSpanCheck"],
+	"analyses_to_process": ["CustomDBSCANExtra", "Unclustered"]
+	
+
+}
