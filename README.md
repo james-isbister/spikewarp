@@ -8,7 +8,7 @@ The code was written by James B Isbister, and is distributed under the 3-Clause 
 
 ## Data
 All data used for the analyses of the paper is available at:  
-> URL to be decided.
+> https://github.com/james-isbister/IsbisterEtAl-SciRep2021-Data
 
 ## Requirements
 1. Python 3.8.3
